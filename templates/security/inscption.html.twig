@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Creation compte
+{% endblock %}
+
+{% block body %}
+	{{form_start(user)}}
+	{{form_widget(user)}}
+	<button class="btn">Valider</button>
+	{{form_end(user)}}
+{% endblock %}
