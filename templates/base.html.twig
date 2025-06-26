@@ -19,23 +19,31 @@
 		{% endblock %}
 	</head>
 	<body>
-		<div></div>
-		<nav>
-			{# <a href="{{path('')}}">Le Salon</a>
-						<a href="{{path('')}}">La Garde-Chapothéque</a>
-						<a href="{{path('')}}">Glisser Un Mot Au Chapotier</a> #}
-			<a href="#">Le Salon</a>
-			<a href="#">La Garde-Chapothéque</a>
-			<a href="#">Glisser Un Mot Au Chapotier</a>
-			{% if app.user %}
-				{# <a href="{{ path('app_logout') }}">Sortir</a> #}
-				<a href="#">Sortir</a>
-			{% else %}
-				{# <a href="{{ path('app_login') }}">Entrer</a>
-								<a href="{{ path('') }}">Devenir Chapelier</a> #}
-				<a href="#">Entrer</a>
-				<a href="#">Devenir Chapotier</a>
-			{% endif %}
-		</nav>
+		<header>
+			<div>
+				<nav>
+					<div class="img">
+						<img src="{{ asset('img/logo_chapo.png') }}" alt="logo">
+					</div>
+					{# <a href="{{path('')}}">Le Salon</a>
+													<a href="{{path('')}}">La Garde-Chapothéque</a>
+													<a href="{{path('')}}">Glisser Un Mot Au Chapotier</a> #}
+					<a href="#">Le Salon</a>
+					<a href="#">La Garde-Chapothéque</a>
+					<a href="#">Glisser Un Mot Au Chapotier</a>
+					{% if app.user %}
+						{# <a href="{{ path('app_logout') }}">Sortir</a> #}
+						<a href="#">Sortir</a>
+					{% else %}
+						{# <a href="{{ path('app_login') }}">Entrer</a>
+																																																																																														<a href="{{ path('') }}">Devenir Chapelier</a> #}
+						<a href="#">Entrer</a>
+						<a href="#">Devenir Chapotier</a>
+					{% endif %}
+				</nav>
+			</div>
+		</header>
+
+
 	</body>
 </html>

@@ -1,0 +1,31 @@
+@use '../abstarcts/variables' as variables;
+
+header {
+
+    border-bottom: 5px solid rgba(118, 36, 53, 0.2);
+
+    nav {
+        background: variables.$bordeau;
+        display: flex;
+        justify-content: space-around;
+
+        a {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+            color: variables.$rose;
+            font-weight: 700;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        a:hover {
+            color: variables.$doree;
+        }
+
+        .img {
+            width: 10%;
+        }
+    }
+}
