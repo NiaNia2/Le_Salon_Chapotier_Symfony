@@ -1,4 +1,7 @@
+@use '../abstarcts/variables' as variables;
+
 body {
+    font-family: variables.$font-body;
     margin: 0 auto;
 }
 
@@ -9,14 +12,17 @@ img {
 }
 
 h1 {
+    font-family: variables.$font-title;
     font-size: 48px;
 }
 
 h2 {
+    font-family: variables.$font-title;
     font-size: 35px;
 }
 
 h3 {
+    font-family: variables.$font-title;
     font-size: 24px;
 }
 
@@ -28,3 +34,5 @@ a {
     text-decoration: none;
     font-size: 20px;
 }
+
+.form {}
