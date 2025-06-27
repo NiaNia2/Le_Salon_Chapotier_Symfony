@@ -4,15 +4,21 @@
 {% endblock %}
 
 {% block body %}
-
-	<div class="banner">
-		<div class="">
+	<div class="fond">
+		<div class="text">
+			<p class="conte">Il était une fois... un Salon oublié, suspendu entre deux tasses de thé et une faille temporelle.</p>
+			<p class="conte">Les chapeaux y dansent seuls, les horloges chantent faux, et le Chapotier parle aux miroirs.</p>
+			<p class="conte">Personne ne sait vraiment s’il faut entrer par la porte… ou par une idée folle.</p>
+			<p class="conte">Une seule chose est sûre…</p>
+			<p class="conte">Ici, la raison est facultative.</p>
+			<p class="conte">Mais la connexion, elle, est obligatoire.</p>
+		</div>
+		<button class="btn-home" id="btn-anim" hidden>Entrer</button>
+		<div>
 			{% if app.user %}
 				<h1>Bienvenue
 					{{ app.user.pseudo }}</h1>
 			{% endif %}
 		</div>
-
-
 	</div>
 {% endblock %}

@@ -1,0 +1,46 @@
+@use '../abstarcts/variables' as variables;
+
+.fond {
+    margin: 0 auto;
+    background-image: url('~/public/img/BG-papo.png');
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    .text {
+        font-family: variables.$font-anim;
+
+
+        .conte {
+            margin: 0;
+            font-size: 30px;
+            line-height: 1.6;
+            text-align: center;
+            color: variables.$text-color;
+            margin: 1rem 0;
+            min-height: 2.5rem;
+        }
+
+        span.word {
+            opacity: 0;
+            display: inline-block;
+            margin-right: 0.3em;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+    }
+
+}
+
+// //.fond::before {
+//     content: "";
+//     position: fixed;
+//     inset: 0;
+//     background: rgba(0, 0, 0, 0.5); // voile sombre semi-transparent
+//     z-index: -1; // Derrière le contenu
+// }
