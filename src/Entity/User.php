@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -33,6 +35,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column]
     private ?string $password = null;
+
+    /**
+     * @var Collection<int, Chapeaux>
+     */
+    #[ORM\OneToMany(targetEntity: Chapeaux::class, mappedBy: 'user')]
+    private Collection $chapeauxes;
+
+    public function __construct()
+    {
+        $this->chapeauxes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -118,5 +131,35 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    /**
+     * @return Collection<int, Chapeaux>
+     */
+    public function getChapeauxes(): Collection
+    {
+        return $this->chapeauxes;
+    }
+
+    public function addChapeaux(Chapeaux $chapeaux): static
+    {
+        if (!$this->chapeauxes->contains($chapeaux)) {
+            $this->chapeauxes->add($chapeaux);
+            $chapeaux->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeChapeaux(Chapeaux $chapeaux): static
+    {
+        if ($this->chapeauxes->removeElement($chapeaux)) {
+            // set the owning side to null (unless already changed)
+            if ($chapeaux->getUser() === $this) {
+                $chapeaux->setUser(null);
+            }
+        }
+
+        return $this;
     }
 }

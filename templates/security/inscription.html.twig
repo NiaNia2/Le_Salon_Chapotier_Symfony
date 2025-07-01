@@ -4,8 +4,17 @@
 {% endblock %}
 
 {% block body %}
-	{{form_start(userForm)}}
-	{{form_widget(userForm)}}
-	<button class="btn">Valider</button>
-	{{form_end(userForm)}}
+	<section id="inscription">
+		<div class="titre-inscri">
+			<h1>C’est en devenant Chapelier que l’on entre dans la légende</h1>
+		</div>
+		<div class="contenair">
+			{{form_start(userForm)}}
+			{{form_widget(userForm)}}
+			<button class="btns btn-home">Valider</button>
+			{{form_end(userForm)}}
+		</div>
+
+	</section>
+
 {% endblock %}

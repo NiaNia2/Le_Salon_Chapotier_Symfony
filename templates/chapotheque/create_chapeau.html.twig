@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ChapothequeController!
+{% endblock %}
+{% block body %}
+	<h1>Bienvenue à toi dans la chapothéque de creation
+	</h1>
+	{{form_start(chapeauform)}}
+	{{form_widget(chapeauform)}}
+	<button class="btns btn-home">Valider</button>
+	{{form_end(chapeauform)}}
+{% endblock %}
