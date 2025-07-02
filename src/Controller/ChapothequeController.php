@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Chapeaux;
+use App\Form\ChapeauTypeForm;
 use App\Form\ChapeauxTypeForm;
 use App\Repository\ChapeauxRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -27,7 +28,7 @@ final class ChapothequeController extends AbstractController
     {
         $chapeau = new Chapeaux();
 
-        $form = $this->createForm(ChapeauxTypeForm::class);
+        $form = $this->createForm(ChapeauTypeForm::class);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -45,7 +46,7 @@ final class ChapothequeController extends AbstractController
     #[Route('/modifie_chapeau/{id}', name: 'update_chapeau')]
     public function update_chapeau(Chapeaux $chapeau, Request $request, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(ChapeauxTypeForm::class, $chapeau);
+        $form = $this->createForm(ChapeauTypeForm::class, $chapeau);
 
         $form->handleRequest($request);
 
