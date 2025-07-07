@@ -1,0 +1,22 @@
+@use '../abstarcts/variables' as variables;
+
+.contain {
+    // width: 50%;
+    // height: 50%;
+    //     display: flex;
+    //     justify-content: center;
+    //     flex-wrap: wrap;
+    //     flex-direction: row;
+    //     margin: 1rem;
+    //     gap: 1rem;
+
+    .chapo {
+        width: 100%;
+        // background-color: variables.$rose-form;
+        //         margin-bottom: 1rem;
+        //         display: flex;
+        //         flex-direction: column;
+        //         justify-content: center;
+        //         align-items: center;
+    }
+}

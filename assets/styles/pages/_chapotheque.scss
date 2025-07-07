@@ -1,0 +1,7 @@
+@use '../abstarcts/variables' as variables;
+
+.card-chapo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}

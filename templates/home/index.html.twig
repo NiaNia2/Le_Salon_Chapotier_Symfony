@@ -12,7 +12,6 @@
 				{{ app.user.pseudo }}</h1>
 
 		{% else %}
-
 			<div class="fond">
 				<div class="text">
 					<p class="conte">Il était une fois... un Salon oublié, suspendu entre deux tasses de thé et une faille temporelle.</p>
@@ -24,9 +23,25 @@
 				</div>
 				<div class="btns" id="box-btn" hidden>
 					<a href="{{ path('app_login') }}" class="btn-home" id="btn-enter">Entrer</a>
-					<a href="{{ path('app_inscription') }}" class="btn-home" id="btn-register">Devenir Chapotier</a>
+					<a href="{{ path('app_inscription') }}" class="btns btn-home" id="btn-register">Devenir Chapotier</a>
 				</div>
 			{% endif %}
+			<div class="contain">
+				{% if app.user %}
+					{% for chapeau in chapeau %}
+						<div class="chapo">
+							<h2 class="titre">{{ chapeau.name }}</h2>
+							<div class="img">
+								<img src="{{ asset('/uploads/images/'~ chapeau.imageName) }}" alt="photo d'un chapeau">
+							</div>
+							<a href="#" class="btns btn-home">
+								Percez son mystère
+							</a>
+						</div>
+					{% endfor %}
+				{% endif %}
+			</div>
+
 		</div>
 	</div>
 {% endblock %}

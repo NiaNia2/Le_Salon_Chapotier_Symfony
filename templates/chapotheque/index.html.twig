@@ -5,12 +5,32 @@
 {% block body %}
 	<h1>Bienvenue à toi dans la chapothéque
 	</h1>
-	{% for chapeau in chapeaux %}
-		<h1>{{ chapeau.name}}</h1>
-		{{ dump(chapeau) }}
-		{% if app.user and app.user.id == chapeau.user.id %}
-			<a class="btns btn-home" href={{ path('update_chapeau',{'id': chapeau.id } )}}>Modifier</a>
-		{% endif %}
-	{% endfor %}
-	<a class="btns btn-home" href={{ path('create_chapeau') }}>Ajouter</a>
+	{% if app.user %}
+		<a class="btns btn-home" href={{ path('create_chapeau') }}>Ajouter un chapeau</a>
+	{% endif %}
+	<div class="card-chapo">
+		{% for chapeau in chapeaux %}
+			<div class="chapotheque">
+				<h2>{{ chapeau.name}}</h2>
+				<div class="img">
+					<img src="{{ asset('/uploads/images/'~ chapeau.imageName) }}" alt="photo d'un chapeau">
+				</div>
+
+				{% if app.user and app.user.id == chapeau.user.id %}
+					<a class="btns btn-home" href={{ path('update_chapeau',{'id': chapeau.id } )}}>Modifier</a>
+
+					<form method="POST" onsubmit="return confirm('confirmer la suppression?')" action="{{ path('delete_chapeau', {'id': chapeau.id}) }}">
+						<input type="hidden" name="_method" value="delete">
+						<input type="hidden" name="_token" value="{{csrf_token('SUP' ~ chapeau.id)}}">
+						<input id="delete" type="submit" value="Supprimer" class="btns btn-home">
+					</form>
+					<a href="#" class="btns btn-home">
+						Percez son mystère
+					</a>
+				</div>
+			{% endif %}
+		{% endfor %}
+
+	</div>
+
 {% endblock %}

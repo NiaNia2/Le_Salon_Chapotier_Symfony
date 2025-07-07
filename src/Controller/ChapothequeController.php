@@ -28,7 +28,7 @@ final class ChapothequeController extends AbstractController
     {
         $chapeau = new Chapeaux();
 
-        $form = $this->createForm(ChapeauTypeForm::class);
+        $form = $this->createForm(ChapeauTypeForm::class, $chapeau);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -58,6 +58,31 @@ final class ChapothequeController extends AbstractController
         }
         return $this->render('chapotheque/modifie_chapeau.html.twig', [
             'chapeauform' => $form->createView(),
+        ]);
+    }
+
+    #[Route('/delete_chapeau/{id}', name: 'delete_chapeau')]
+    public function delete(Chapeaux $chapeau, Request $request, EntityManagerInterface $entityManager): Response
+    {
+
+        if ($this->isCsrfTokenValid("SUP" . $chapeau->getId(), $request->get('_token'))) {
+
+            $entityManager->remove($chapeau);
+
+            $entityManager->flush();
+
+            $this->addFlash('succes', 'Chapeau supprimer');
+            return $this->redirectToRoute('app_chapotheque');
+        }
+        return $this->redirectToRoute('app_chapotheques');
+    }
+
+    #[Route('/chapeau/{id}', name: 'detail')]
+    public function detail(ChapeauxRepository $repository): Response
+    {
+
+        return $this->render('detail/index.html.twig', [
+            'chapeau' => $chapeau,
         ]);
     }
 }
