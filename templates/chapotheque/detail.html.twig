@@ -3,19 +3,19 @@
 	<h1>Bonjour</h1>
 
 
-	<div
-		class="cards-chapo">
-		{# <div class="chapo-card" data-controller='chapo-sound' {% if chapeau.name == 'chapon' %} data-chapo-sound-sound-value="{{ asset('sounds/chapi.mp3') }}" ata-action="mouseenter->chapo-sound#play" {% endif %}> #}
+	<div class="cards-chapo">
+		<div class="chapo-card" data-controller='hello' {% if chapeau.name == 'chapon' %} data-hello-sound-value="{{ asset('sounds/chapi.mp3') }}" data-action="mouseenter->chapo-sound#play" {% endif %}>
 
-		<div class="cards">
-			<img src="{{ asset('/uploads/images/'~ chapeau.imageName) }}" alt="photo d/un chapeau">
+			<div class="cards">
+				<img src="{{ asset('/uploads/images/'~ chapeau.imageName) }}" alt="photo d/un chapeau">
+			</div>
+			<div class="description"></div>
+			<h2>{{ chapeau.name }}</h2>
+			<p>{{ chapeau.caractere }}</p>
+			<p>{{ chapeau.valeur }}</p>
+			<p>{{ chapeau.description }}</p>
+			<p>{{ chapeau.commentaire }}</p>
 		</div>
-		<div class="description"></div>
-		<h2>{{ chapeau.name }}</h2>
-		<p>{{ chapeau.caractere }}</p>
-		<p>{{ chapeau.valeur }}</p>
-		<p>{{ chapeau.description }}</p>
-		<p>{{ chapeau.commentaire }}</p>
 	</div>
-</div>
-<a href="{{path('app_chapotheque')}}" class="btns btn-home">Retour</a>{% endblock %}
+	<a href="{{path('app_chapotheque')}}" class="btns btn-home">Retour</a>
+{% endblock %}
