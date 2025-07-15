@@ -50,3 +50,7 @@ async function animateText() {
 }
 
 window.addEventListener('DOMContentLoaded', animateText); // represente la page web, ecouter evenement,evenement ce chargeant une fois la page web charger , function qui fait commencer levenment 
+
+
+
+

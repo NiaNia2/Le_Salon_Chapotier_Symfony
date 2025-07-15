@@ -1,0 +1,13 @@
+@use '../abstarcts/variables' as variables;
+
+.contenair {
+    form {
+        background-color: variables.$rose-form;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: variables.$doree;
+        padding: 2rem;
+        gap: 2rem;
+    }
+}

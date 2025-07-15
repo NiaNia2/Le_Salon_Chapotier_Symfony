@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use id;
 use App\Entity\Chapeaux;
 use App\Form\ChapeauTypeForm;
 use App\Form\ChapeauxTypeForm;
@@ -78,10 +79,11 @@ final class ChapothequeController extends AbstractController
     }
 
     #[Route('/chapeau/{id}', name: 'detail')]
-    public function detail(ChapeauxRepository $repository): Response
+    public function detail(Chapeaux $chapeau, ChapeauxRepository $repository): Response
     {
+        // $chapeau = $repository->find('id');
 
-        return $this->render('detail/index.html.twig', [
+        return $this->render('chapotheque/detail.html.twig', [
             'chapeau' => $chapeau,
         ]);
     }

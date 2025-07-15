@@ -24,7 +24,7 @@
 						<input type="hidden" name="_token" value="{{csrf_token('SUP' ~ chapeau.id)}}">
 						<input id="delete" type="submit" value="Supprimer" class="btns btn-home">
 					</form>
-					<a href="#" class="btns btn-home">
+					<a href={{ path('detail', {'id': chapeau.id} ) }} class="btns btn-home">
 						Percez son mystère
 					</a>
 				</div>
